@@ -1,12 +1,11 @@
 package com.homework.profile.webchannel.controller;
 
 import com.google.gson.Gson;
-import com.homework.profile.domain.Address;
 import com.homework.profile.domain.CustomerProfile;
 import com.homework.profile.domain.payload.ApiResponseCode;
-import com.homework.profile.domain.AddressType;
+
 import com.homework.profile.domain.payload.ResponsePayload;
-import com.homework.profile.exceptions.InvalidRequestException;
+
 import com.homework.profile.service.CustomerProfileServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,7 +15,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
 
 import static com.homework.profile.domain.CustomerProfileMother.getCustomerProfile;
 import static com.homework.profile.domain.payload.ApiResponseCode.UNAUTHORISED_REQUEST;

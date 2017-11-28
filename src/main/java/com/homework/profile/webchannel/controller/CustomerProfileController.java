@@ -94,7 +94,7 @@ public class CustomerProfileController {
      * @param customerId
      * @param jwt
      */
-    @DeleteMapping(value = "/{customerId}", headers = "Content-Type=application/json")
+    @DeleteMapping(value = "/{customerId}")
     @CacheEvict(value = "customerProfile", key = "#customerId")
     public ResponseEntity deleteCustomer(final @PathVariable String customerId,
                                          @NotNull final @RequestHeader(value = "x-cust-usertoken") String jwt) {
