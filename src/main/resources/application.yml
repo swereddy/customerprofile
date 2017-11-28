@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: Customer Profile Service
+
+
+gateway:
+  crm:
+    baseUri: https://staging-crms.homework.com.au
+    timeout:
+      read: 300  #in secs
+      connect: 300
+
+
+endpoints:
+  enabled: true
+  sensitive: false
+  logging:
+    file: service.log
+
+management:
+  health:
+    diskspace:
+      enabled: true
+    db:
+      enabled: true
+  security:
+    enabled: false
+  context-path: /private

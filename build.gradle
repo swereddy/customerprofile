@@ -1,0 +1,62 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.8.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+group = 'com.homework.profile'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+ext {
+	springCloudVersion = 'Edgware.RELEASE'
+	javaxInjectVersion = '1'
+	swaggerFoxVersion = '2.7.0'
+	swaggerVersion = '1.5.16'
+	pactConsumerVersion = '2.1.13'
+	feignVersion = '8.18.0'
+}
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile('org.springframework.boot:spring-boot-starter-cache')
+	compile('org.springframework.cloud:spring-cloud-starter-sleuth')
+	compile('org.springframework.boot:spring-boot-starter-hateoas')
+	compile('org.projectlombok:lombok')
+	compile("javax.inject:javax.inject:${javaxInjectVersion}")
+	compile("io.springfox:springfox-swagger2:${swaggerFoxVersion}")
+	compile("io.springfox:springfox-swagger-ui:${swaggerFoxVersion}")
+
+	compile("com.netflix.feign:feign-hystrix:${feignVersion}")
+	compile("com.netflix.feign:feign-core:${feignVersion}")
+	compile("com.netflix.feign:feign-okhttp:${feignVersion}")
+	compile("com.netflix.feign:feign-gson:${feignVersion}")
+
+	compile("com.auth0:java-jwt:3.2.0")
+
+
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile("org.mockito:mockito-core")
+	testCompile("au.com.dius:pact-jvm-consumer-junit_2.11:${pactConsumerVersion}")
+	testCompile("com.marvinformatics.feign:feign-mock:0.6")
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}
